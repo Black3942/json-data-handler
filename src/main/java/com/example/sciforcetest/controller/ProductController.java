@@ -1,5 +1,6 @@
 package com.example.sciforcetest.controller;
 
+import com.example.sciforcetest.dto.ProductAvailabilityDto;
 import com.example.sciforcetest.dto.ProductDto;
 import com.example.sciforcetest.service.response.ProductService;
 import java.util.List;
@@ -22,5 +23,10 @@ public class ProductController {
     @GetMapping("/all")
     public List<ProductDto> getAll() {
         return productService.getAll();
+    }
+
+    @GetMapping("/availability")
+    public List<ProductAvailabilityDto> getAvailability() {
+        return productService.getAvailability();
     }
 }
