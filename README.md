@@ -5,3 +5,5 @@ To configure links(url/path_to_file) use DataSourceConfig.java located in src/ma
 use end-point / (like "http://localhost:8080/") to get data for one url and one local file
 
 use end-point /all (like "http://localhost:8080/all") to get data from all data sources
+
+use end-point /availability (like "http://localhost:8080/availability") to get data from all data sources, and additional output field availability
