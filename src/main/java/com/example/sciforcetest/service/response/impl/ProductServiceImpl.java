@@ -54,11 +54,15 @@ public class ProductServiceImpl implements ProductService {
     public List<ProductAvailabilityDto> getAvailability() {
         List<ProductAvailabilityDto> list = new ArrayList<>();
         List<ProductDto> all = getAll();
+        Map<String, Integer> availability = new HashMap<>();
+        IntStream.range(0, all.size()).forEach(i -> {
+            ProductDto productDto = all.get(i);
+            availability.put("#" + i, productDto.getAmount());
+        });
         IntStream.range(0, all.size()).forEach(i -> {
             ProductDto productDto = all.get(i);
             ProductAvailabilityDto product = new ProductAvailabilityDto(productDto);
-            Map<String, Integer> availability = product.getAvailability();
-            availability.put("#" + i, productDto.getAmount());
+            product.setAvailability(availability);
             list.add(product);
         });
         return list;
